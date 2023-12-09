@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../static/css/site.css" th:href="@{/css/site.css}" rel="stylesheet"/>
+    <title>Edit Publisher</title>
+</head>
+<body>
+    <h1 th:text="${publisher.title}">text</h1>
+    <form action="#" th:action="@{/publisher/savePublisher}"  th:object="${publisher}" method="post">
+        <input  type="hidden" th:field="*{id}" id="id"/>
+        <label>Publisher name:</label>
+        <input class ="EditBox" type="text" th:field="*{name}" id="name"/><br/>
+       
+        <input class ="EditBox btn" type="submit" value="Save Changes">
+    </form>
+</body>
+</html>

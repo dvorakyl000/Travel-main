@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="../static/css/site.css"
+      th:href="@{/css/site.css}"
+      rel="stylesheet"
+    />
+    <title>Edit Game</title>
+  </head>
+  <body>
+    <h1 th:text="${game.title}">text</h1>
+    <form
+      action="#"
+      th:action="@{/game/saveGame}"
+      th:object="${game}"
+      method="post"
+    >
+      <input type="hidden" th:field="*{id}" id="id" /><br />
+      <input type="hidden" th:field="*{publisherId}" id="publisherId" /><br />
+      <table>
+        <tr>
+          <td>
+            <label>Game name:</label>
+          </td>
+          <td>
+            <input class="EditBox" type="text" th:field="*{name}" id="name" />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label>Game Description:</label>
+          </td>
+          <td>
+            <input
+              class="EditBox"
+              type="text"
+              th:field="*{description}"
+              id="description"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label>Game image getImageUrl:</label>
+          </td>
+          <td>
+            <input
+              class="EditBox"
+              type="text"
+              th:field="*{imageUrl}"
+              id="imageUrl"
+            />
+          </td>
+        </tr>
+      </table>
+      <input class="EditBox btn" type="submit" value="Create" />
+    </form>
+  </body>
+</html>

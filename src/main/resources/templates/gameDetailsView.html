@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../static/css/site.css" th:href="@{/css/site.css}" rel="stylesheet"/>
+    <title>Publisher Details</title>
+</head>
+<body>
+    <h1 th:text="${publisher.getName()}">text</h1>
+    <a th:href="@{/game/createGame/} + ${publisher.getId()}">add Activity</a>
+    <table>
+        <tr th:each="game: ${publisher.getGames()}" >
+            <td><div class="circleborder"><img th:src="${game.getImageUrl()}" class="round-circle"/></div></td>
+            <td class="special" th:text="${game.getName()}"></td>
+            <td class="special" th:text="${game.getDescription()}"></td>
+            <td><a th:href="@{/game/editGame/} + ${game.getId()}">Edit</a></td>
+            <td><a th:href="@{/game/deletegame/} + ${game.getId()}">Delete</a></td>
+        </tr>
+    </table>
+</body>
+</html>
